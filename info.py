@@ -13,9 +13,9 @@ def is_enabled(value, default):
 
 # Bot information
 SESSION = environ.get('SESSION', 'Media_search')
-API_ID = int(environ['API_ID'])
-API_HASH = environ['API_HASH']
-BOT_TOKEN = environ['BOT_TOKEN']
+API_ID = int(environ['API_ID', '6595979'])
+API_HASH = environ['API_HASH', 'b9625545e9f261a600a049de0b0c310f']
+BOT_TOKEN = environ['BOT_TOKEN', '2052616432:AAGMaruk4WzZpcPg3adkZzNmOqhIiQg__U0']
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
@@ -25,22 +25,18 @@ PICS = (environ.get('PICS', 'https://telegra.ph/file/6eda2868f11d2aa9d15da.jpg h
 MELCOW_VID = environ.get("MELCOW_VID", "https://telegra.ph/file/184b20d763e972f493bc0.jpg")
 
 # Admins, Channels & Users
-ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '').split()]
-CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '0').split()]
+ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '1573108290 1167310327').split()]
+CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1001596815886 -1001396095544 -1001557199160 -1001519694012 -1001610844656 -1001690448036 -1001562925943 -1001135023782 -1001620200646 -1001622478032 -1001705433155 -1001742706118 -1001226345048 -1001528118653 -1001565676692 -1001673710630 -1001606367700').split()]
 auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '').split()]
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
 auth_channel = environ.get('AUTH_CHANNEL')
 auth_grp = environ.get('AUTH_GROUP')
-AUTH_CHANNEL = int(auth_channel) if auth_channel and id_pattern.search(auth_channel) else None
+AUTH_CHANNEL = environ.get('AUTH_CHANNEL', '-1001623673855')
 AUTH_GROUPS = [int(ch) for ch in auth_grp.split()] if auth_grp else None
-support_chat_id = environ.get('SUPPORT_CHAT_ID')
-reqst_channel = environ.get('REQST_CHANNEL_ID')
-REQST_CHANNEL = int(reqst_channel) if reqst_channel and id_pattern.search(reqst_channel) else None
-SUPPORT_CHAT_ID = int(support_chat_id) if support_chat_id and id_pattern.search(support_chat_id) else None
 
 # MongoDB information
-DATABASE_URI = environ.get('DATABASE_URI', "")
-DATABASE_NAME = environ.get('DATABASE_NAME', "")
+DATABASE_URI = environ.get('DATABASE_URI', "sahan")
+DATABASE_NAME = environ.get('DATABASE_NAME', "mongodb+srv://sahan:sahan@cluster0.d0p3u.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 
 # Others
